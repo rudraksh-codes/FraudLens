@@ -1,0 +1,92 @@
+.about {
+  padding: 64px 0 96px;
+  max-width: 680px;
+}
+
+.about-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 14px 0 18px;
+  line-height: 1.15;
+}
+
+.about-lead {
+  color: var(--ink-dim);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 44px;
+}
+
+.about-pipeline {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 44px;
+}
+
+.about-pipeline-item {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.about-pipeline-index {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 1px solid var(--border-bright);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-panel);
+  z-index: 1;
+}
+
+.about-pipeline-step {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.about-pipeline-detail {
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.about-pipeline-connector {
+  position: absolute;
+  left: 16px;
+  top: 34px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.about-why {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 26px;
+}
+
+.about-why-heading {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.about-why-body {
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
