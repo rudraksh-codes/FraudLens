@@ -1,0 +1,67 @@
+.risk-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.risk-gauge-svg {
+  width: 220px;
+  max-width: 100%;
+  filter: drop-shadow(0 0 16px color-mix(in srgb, var(--gauge-color) 35%, transparent));
+}
+
+.risk-gauge-arc {
+  animation: gauge-fill 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.risk-gauge-needle {
+  transform-origin: 100px 100px;
+  transform: rotate(-90deg);
+  animation: gauge-needle 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes gauge-fill {
+  from {
+    stroke-dashoffset: 283;
+  }
+}
+
+@keyframes gauge-needle {
+  from {
+    transform: rotate(-90deg);
+  }
+}
+
+.risk-gauge-readout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -18px;
+}
+
+.risk-gauge-score {
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--gauge-color);
+  line-height: 1;
+}
+
+.risk-gauge-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .risk-gauge-arc,
+  .risk-gauge-needle {
+    animation: none;
+  }
+}
