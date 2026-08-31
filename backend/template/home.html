@@ -1,1 +1,55 @@
-<h1>This is the homepage</h1>
+{% extends 'base.html' %}
+{% block content %}
+    <!-- ============================================================
+    MAIN HERO
+    ============================================================ -->
+    <main class="hero-section">
+        <div class="container hero-container">
+            <!-- Eyebrow -->
+            <p class="eyebrow">MESSAGE &middot; SMS &middot; WHATSAPP &middot; EMAIL &middot; URL</p>
+
+            <!-- Heading -->
+            <h1 class="hero-heading">Paste it before you trust it.</h1>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle">
+                Sentinel scans the text for the signals real scam campaigns leave behind —
+                urgency, credential requests, suspicious links — and tells you what to do
+                next.
+            </p>
+
+            <!-- ============================================================
+            SCAM CHECKER PANEL
+            ============================================================ -->
+            <div class="checker-panel">
+Z
+                <form method="POST" action="" class="checker-form">
+                    <!-- Django CSRF token goes here -->
+
+                    <label for="scamInput" class="checker-label">
+                        Paste the message or URL
+                    </label>
+
+                    <textarea
+                    id="scamInput"
+                    name="content"
+                    class="checker-textarea"
+                    placeholder="e.g. Dear Customer, your account will be blocked. Click here to verify…"
+                    rows="6"
+                ></textarea>
+
+                <div class="panel-actions">
+                    <button type="button" class="btn btn-outline-example">
+                        Try an example
+                    </button>
+                    <button type="submit" class="btn btn-primary-check">
+                        Check message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
