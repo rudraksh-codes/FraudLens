@@ -1,0 +1,421 @@
+/* ================================================================
+   checker.css – FraudLens Scam Checker (Enhanced)
+   Place this in base.html <head> after Bootstrap:
+   {% load static %}
+   <link rel="stylesheet" href="{% static 'css/checker.css' %}">
+   ================================================================ */
+
+/* ----- force dark background (overrides any base) ----- */
+body {
+    background: #080b12 !important;
+    color: #eef3f8 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.hero-section {
+    padding: 2.5rem 0 3.5rem;
+}
+
+.hero-container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ----- eyebrow ----- */
+.eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25) !important;
+    margin-bottom: 1.8rem;
+    font-weight: 500;
+}
+
+/* ----- heading ----- */
+.hero-heading {
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #ffffff !important;
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #f0f8ff 0%, #80c8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(26, 140, 255, 0.1);
+}
+
+/* ----- subtitle ----- */
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.55) !important;
+    line-height: 1.7;
+    max-width: 660px;
+    margin-bottom: 2.8rem;
+    font-weight: 400;
+}
+
+/* ================================================================
+   CHECKER PANEL – glass‑morphism and glow
+   ================================================================ */
+.checker-panel {
+    background: rgba(255, 255, 255, 0.035) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 1.8rem !important;
+    padding: 2.2rem 2.2rem 2rem !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(26, 140, 255, 0.05) inset !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checker-panel:hover {
+    border-color: rgba(26, 140, 255, 0.2) !important;
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(26, 140, 255, 0.15) inset !important;
+}
+
+.checker-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.checker-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6) !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.checker-textarea {
+    width: 100%;
+    padding: 1.2rem 1.5rem !important;
+    border-radius: 1rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    background: rgba(0, 0, 0, 0.45) !important;
+    color: #eef3f8 !important;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) inset;
+}
+
+.checker-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2) !important;
+    font-weight: 300;
+}
+
+.checker-textarea:focus {
+    outline: none;
+    border-color: #1a8cff !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 0 0 4px rgba(26, 140, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3) inset !important;
+}
+
+/* ----- button row ----- */
+.panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 0.25rem;
+}
+
+.btn {
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.7rem 2rem;
+    border-radius: 0.8rem;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+    letter-spacing: 0.01em;
+}
+
+/* "Try an example" – secondary outline */
+.btn-outline-example {
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.btn-outline-example:hover {
+    background: rgba(255, 255, 255, 0.07) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px);
+}
+
+/* "Check message" – primary with glow */
+.btn-primary-check {
+    background: #1a8cff !important;
+    color: #ffffff !important;
+    border-color: #1a8cff !important;
+    box-shadow: 0 4px 20px rgba(26, 140, 255, 0.3) !important;
+}
+
+.btn-primary-check:hover {
+    background: #0073e6 !important;
+    border-color: #0073e6 !important;
+    box-shadow: 0 8px 28px rgba(26, 140, 255, 0.45) !important;
+    transform: translateY(-2px);
+}
+
+.btn-primary-check:active {
+    transform: translateY(0) !important;
+}
+
+/* ================================================================
+   RESULT CARD – fully reimagined
+   ================================================================ */
+.result-card {
+    margin-top: 2.8rem;
+    background: rgba(255, 255, 255, 0.035) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 1.8rem !important;
+    padding: 2.2rem 2.2rem 2rem !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(26, 140, 255, 0.03) inset !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top accent line */
+.result-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #1a8cff 50%, transparent 100%);
+    opacity: 0.6;
+}
+
+/* Header area: risk level and score */
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.8rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.result-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    margin: 0;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-left: 6px solid #1a8cff;
+    padding-left: 1.2rem;
+}
+
+.result-header h2::before {
+    content: "🛡️";
+    font-size: 1.8rem;
+    opacity: 0.7;
+}
+
+/* Score badge */
+.score-badge {
+    background: rgba(26, 140, 255, 0.12);
+    border: 1px solid rgba(26, 140, 255, 0.25);
+    border-radius: 999px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+}
+
+/* Score meter */
+.score-meter {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 1.8rem;
+}
+
+.score-meter-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #1a8cff, #6cb2ff);
+    box-shadow: 0 0 15px rgba(26, 140, 255, 0.4);
+    width: 0%; /* overridden by inline style */
+    transition: width 0.6s ease;
+}
+
+/* Details grid */
+.result-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    border-radius: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.4rem;
+}
+
+.detail-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+}
+
+/* Evidence section */
+.result-evidence {
+    margin: 1.5rem 0;
+}
+
+.result-evidence h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.75rem 0;
+}
+
+.result-evidence ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.result-evidence ul li {
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0.6rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7) !important;
+    position: relative;
+    border-left: 3px solid rgba(26, 140, 255, 0.25);
+    backdrop-filter: blur(2px);
+}
+
+.result-evidence ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0.9rem;
+    color: #1a8cff;
+    font-weight: 300;
+}
+
+/* LLM explanation */
+.result-explanation {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.result-explanation strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Recommended action */
+.result-action {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1.2rem;
+    background: rgba(26, 140, 255, 0.08) !important;
+    border-radius: 0.8rem;
+    border-left: 4px solid #1a8cff;
+    color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 0 20px rgba(26, 140, 255, 0.05) inset;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.result-action strong {
+    color: #ffffff !important;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 768px) {
+    .hero-heading {
+        font-size: 2.4rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .checker-panel {
+        padding: 1.5rem 1.25rem !important;
+    }
+    .panel-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .result-card {
+        padding: 1.5rem 1.25rem !important;
+    }
+    .result-header h2 {
+        font-size: 1.8rem;
+        padding-left: 1rem;
+    }
+    .result-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-container {
+        padding: 0 1rem;
+    }
+    .hero-heading {
+        font-size: 2rem;
+    }
+    .eyebrow {
+        font-size: 0.6rem;
+    }
+    .checker-textarea {
+        font-size: 0.9rem;
+        padding: 0.9rem 1.2rem !important;
+    }
+    .result-evidence ul li {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem 0.4rem 2rem;
+    }
+    .result-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -20,6 +20,6 @@ from .import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name = "home"), 
+    path('', include("checker.urls")), 
     path('dashboard/', include("dashboard.urls"))
 ]
