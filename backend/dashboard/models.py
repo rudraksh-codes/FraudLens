@@ -1,7 +1,13 @@
 from django.db import models
+from .utils import normalize_text
 
 # Create your models here.
 class ScamPattern(models.Model):
+
+    def save(self, *args, **kwargs):
+        self.normalized_text = normalize_text(self.template_text)
+        super().save(*args, **kwargs)
+
 
     class CategoryChoices(models.TextChoices):
         KYC = 'kyc', 'Bank / KYC'
