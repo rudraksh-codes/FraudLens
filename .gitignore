@@ -93,6 +93,9 @@ archive/
 #nltk
 stopwords/
 
+#staticfiles
+staticfiles/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
