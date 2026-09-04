@@ -8,9 +8,6 @@
 {% block content %}
 <div class="dashboard-wrapper">
 
-    <!-- ============================================================
-         1. HEADER
-    ============================================================ -->
     <header class="dashboard-header">
         <h1 class="dashboard-title">Scam Intelligence Dashboard</h1>
         <p class="dashboard-subtitle">
@@ -18,16 +15,14 @@
         </p>
     </header>
 
-    <!-- ============================================================
-         2. SUMMARY CARDS (4)
-    ============================================================ -->
+    <!-- 3 summary cards -->
     <section class="summary-cards" aria-label="Summary statistics">
         <div class="row g-4">
 
-            <div class="col-12 col-sm-6 col-xl-3">
+            <div class="col-12 col-md-4">
                 <div class="card summary-card">
                     <div class="card-body">
-                        <div class="summary-icon match-icon">
+                        <div class="summary-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 12H4M12 4v16M4 4l16 16M4 20L20 4" />
                             </svg>
@@ -38,10 +33,10 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-xl-3">
+            <div class="col-12 col-md-4">
                 <div class="card summary-card">
                     <div class="card-body">
-                        <div class="summary-icon category-icon">
+                        <div class="summary-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="3" y="3" width="7" height="7" rx="1" />
                                 <rect x="14" y="3" width="7" height="7" rx="1" />
@@ -55,26 +50,10 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-xl-3">
+            <div class="col-12 col-md-4">
                 <div class="card summary-card">
                     <div class="card-body">
-                        <div class="summary-icon pattern-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                <path d="M2 17l10 5 10-5" />
-                                <path d="M2 12l10 5 10-5" />
-                            </svg>
-                        </div>
-                        <div class="summary-label">Most Matched Pattern</div>
-                        <div class="summary-value">{{ most_matched_pattern|default:"—" }}</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="card summary-card">
-                    <div class="card-body">
-                        <div class="summary-icon recent-icon">
+                        <div class="summary-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10" />
                                 <polyline points="12 6 12 12 16 14" />
@@ -89,9 +68,9 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         3. SCAM PATTERN TABLE
-    ============================================================ -->
+    <!-- Scam pattern table: this already shows the top pattern (sorted by
+         sighting_count) so a separate "Most Matched Pattern" summary card
+         would just repeat the first row — dropped for less to explain. -->
     <section class="card table-card mt-4" aria-label="Scam patterns">
         <div class="card-header">
             <h2 class="card-title">Scam Patterns</h2>
@@ -132,9 +111,6 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         4. RECENT ACTIVITY
-    ============================================================ -->
     <section class="card activity-card mt-4" aria-label="Recent activity">
         <div class="card-header">
             <h2 class="card-title">Recent Activity</h2>

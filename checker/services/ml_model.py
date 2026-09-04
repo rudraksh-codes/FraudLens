@@ -13,6 +13,8 @@ NLTK_DATA_DIR = Path(__file__).resolve().parent.parent.parent / "nltk_data"
 if str(NLTK_DATA_DIR) not in nltk.data.path:
     nltk.data.path.append(str(NLTK_DATA_DIR))
 
+print("NLTK search paths:", nltk.data.path, flush=True)
+
 ps = PorterStemmer()
 
 
@@ -39,6 +41,7 @@ def transform_text(text):
         y.append(ps.stem(i))
 
     return " ".join(y)
+
 
 tfidf = pickle.load(open('ml_models/vectorizer.pkl','rb'))
 model = pickle.load(open('ml_models/model.pkl','rb'))
