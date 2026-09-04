@@ -4,6 +4,15 @@ from nltk.corpus import stopwords
 import nltk
 from nltk.stem.porter import PorterStemmer
 
+import os
+import nltk
+from pathlib import Path
+
+# Point NLTK to the bundled data folder inside the project
+NLTK_DATA_DIR = Path(__file__).resolve().parent.parent.parent / "nltk_data"
+if str(NLTK_DATA_DIR) not in nltk.data.path:
+    nltk.data.path.append(str(NLTK_DATA_DIR))
+
 ps = PorterStemmer()
 
 
