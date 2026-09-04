@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="about-section">
+    <div class="container about-container">
+
+        <p class="eyebrow">ABOUT</p>
+        <h1 class="about-heading">Evidence over guesswork.</h1>
+        <p class="about-subtitle">
+            FraudLens checks a suspicious message or URL against a curated library of
+            known Indian scam patterns and returns a risk level with the specific
+            evidence behind it — before you click, share, or pay.
+        </p>
+
+        <section class="about-block">
+            <h2>How it works</h2>
+            <ol class="how-it-works">
+                <li>
+                    <strong>Rules and pattern matching find concrete signals.</strong>
+                    Urgency language, requests for OTP/PIN/passwords, suspicious links, and
+                    similarity to a library of known scam message templates — these are
+                    checked directly and are always explainable: you can see exactly which
+                    signal fired.
+                </li>
+                <li>
+                    <strong>A spam classifier adds a supporting signal.</strong>
+                    A pre-trained model contributes a smaller, secondary weight to the score.
+                    It doesn't decide the outcome on its own.
+                </li>
+                <li>
+                    <strong>The LLM explains the result — it doesn't score it.</strong>
+                    Once the risk level is already decided by the rules and pattern match
+                    above, the LLM's only job is to turn that into a plain-language
+                    explanation and a recommended next step.
+                </li>
+            </ol>
+        </section>
+
+        <section class="about-block disclaimer">
+            <h2>Good to know</h2>
+            <p>
+                FraudLens gives you a risk assessment to help you decide, not a guarantee.
+                A LOW risk result doesn't mean a message is definitely safe, and a HIGH
+                risk result doesn't mean it's definitely a scam — always verify through the
+                sender's official app, website, or helpline before acting.
+            </p>
+            <p>
+                No account is required to use the checker. Messages are analyzed to
+                generate a result and are not shared publicly — only the matched pattern
+                category (not your submitted text) may appear in aggregate dashboard
+                statistics.
+            </p>
+        </section>
+
+        <footer class="about-footer">
+            Built by Team FraudLens for Code Build 1.0 — Cybersecurity / Open Innovation.
+        </footer>
+
+    </div>
+</main>
+{% endblock %}

@@ -21,5 +21,6 @@ from .import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("checker.urls")), 
-    path('dashboard/', include("dashboard.urls"))
+    path('dashboard/', include("dashboard.urls")), 
+    path('about/', views.about, name = 'about'), 
 ]

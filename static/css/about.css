@@ -1,0 +1,92 @@
+/* ================================================================
+   FraudLens – About
+   Page-specific stylesheet. Uses variables defined in theme.css.
+   ================================================================ */
+
+.about-section {
+    min-height: calc(100vh - 72px);
+    padding: 3.5rem 0 4.5rem;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.about-section .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fl-accent);
+    font-weight: 600;
+}
+
+.about-heading {
+    margin: 0 0 1rem;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--fl-text);
+}
+
+.about-subtitle {
+    margin: 0 0 2.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--fl-muted);
+}
+
+.about-block {
+    margin-bottom: 2.5rem;
+    padding: 1.75rem;
+    background: var(--fl-panel);
+    border: 1px solid var(--fl-border);
+    border-radius: 1.2rem;
+}
+
+.about-block h2 {
+    margin: 0 0 1.2rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--fl-text);
+}
+
+.how-it-works {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--fl-muted);
+    line-height: 1.7;
+}
+
+.how-it-works li {
+    margin-bottom: 1rem;
+}
+
+.how-it-works li:last-child {
+    margin-bottom: 0;
+}
+
+.how-it-works strong {
+    color: var(--fl-text);
+    font-weight: 600;
+}
+
+.about-block.disclaimer p {
+    margin: 0 0 1rem;
+    color: var(--fl-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.about-block.disclaimer p:last-child {
+    margin-bottom: 0;
+}
+
+.about-footer {
+    color: var(--fl-subtle);
+    font-size: 0.85rem;
+    text-align: center;
+}
