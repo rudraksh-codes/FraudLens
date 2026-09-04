@@ -6,7 +6,7 @@ def calculate_score(rule_score: float, ml_result: dict, pattern_score: float) ->
         confidence = ml_result.get("confidence")
         ml_score = confidence if confidence is not None else 60
 
-    score = (rule_score * 0.40) + (pattern_score * 0.35) + (ml_score * 0.25)
+    score = (rule_score * 0.25) + (pattern_score * 0.25) + (ml_score * 0.50)
     return max(0, min(100, round(score)))
 
 
@@ -16,7 +16,7 @@ def get_risk_level(score: int) -> str:
     'CRITICAL' tier would save with no matching style or model choice."""
     if score < 30:
         return "LOW"
-    if score < 60:
+    if score < 50:
         return "MEDIUM"
     return "HIGH"
 
