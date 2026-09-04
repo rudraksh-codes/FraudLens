@@ -68,6 +68,48 @@
         </div>
     </section>
 
+
+     <section class="card activity-card mt-4" aria-label="Recent activity">
+        <div class="card-header">
+            <h2 class="card-title">Recent Activity</h2>
+            <p class="card-subtitle">Latest matched or reported submissions</p>
+        </div>
+        <div class="card-body">
+
+            {% if recent_activity %}
+            <ul class="activity-list">
+                {% for activity in recent_activity %}
+                <li class="activity-item">
+                    <div class="activity-header">
+                        <span class="activity-category">{{ activity.category }}</span>
+                        <span class="activity-time">{{ activity.time|date:"d M, H:i" }}</span>
+                    </div>
+                    <div class="activity-pattern">{{ activity.pattern }}</div>
+                    <div class="activity-meta">
+                        <span class="activity-risk risk-{{ activity.risk_level|lower }}">{{ activity.risk_level }}</span>
+                        <span class="activity-match">
+                            {% if activity.match_status %}✅ Matched{% else %}⏳ Unmatched{% endif %}
+                        </span>
+                        <span class="activity-reported">
+                            {% if activity.reported %}⚠️ Reported{% else %}📌 Not reported{% endif %}
+                        </span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <div class="empty-state-inline">
+                <p class="empty-message">No recent activity.</p>
+                <p class="empty-hint">Matched and reported submissions will appear here.</p>
+            </div>
+            {% endif %}
+
+        </div>
+    </section>
+
+
+
+
     <!-- Scam pattern table: this already shows the top pattern (sorted by
          sighting_count) so a separate "Most Matched Pattern" summary card
          would just repeat the first row — dropped for less to explain. -->
@@ -111,43 +153,6 @@
         </div>
     </section>
 
-    <section class="card activity-card mt-4" aria-label="Recent activity">
-        <div class="card-header">
-            <h2 class="card-title">Recent Activity</h2>
-            <p class="card-subtitle">Latest matched or reported submissions</p>
-        </div>
-        <div class="card-body">
-
-            {% if recent_activity %}
-            <ul class="activity-list">
-                {% for activity in recent_activity %}
-                <li class="activity-item">
-                    <div class="activity-header">
-                        <span class="activity-category">{{ activity.category }}</span>
-                        <span class="activity-time">{{ activity.time|date:"d M, H:i" }}</span>
-                    </div>
-                    <div class="activity-pattern">{{ activity.pattern }}</div>
-                    <div class="activity-meta">
-                        <span class="activity-risk risk-{{ activity.risk_level|lower }}">{{ activity.risk_level }}</span>
-                        <span class="activity-match">
-                            {% if activity.match_status %}✅ Matched{% else %}⏳ Unmatched{% endif %}
-                        </span>
-                        <span class="activity-reported">
-                            {% if activity.reported %}⚠️ Reported{% else %}📌 Not reported{% endif %}
-                        </span>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            <div class="empty-state-inline">
-                <p class="empty-message">No recent activity.</p>
-                <p class="empty-hint">Matched and reported submissions will appear here.</p>
-            </div>
-            {% endif %}
-
-        </div>
-    </section>
-
+   
 </div>
 {% endblock %}
