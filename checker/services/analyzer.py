@@ -37,8 +37,15 @@ def analyze_text(text: str) -> dict:
     score = calculate_score(rule_result["score"], ml_result, pattern_score)
     risk_level = get_risk_level(score)
 
+    evidence = _flatten_evidence(rule_result["evidence"])
+
     llm_result = get_llm_explanation(
         text,
+        risk_level=risk_level,
+        score=score,
+        evidence=evidence,
+        ml_prediction=ml_result["prediction"],
+        ml_confidence=ml_result.get("confidence"),
         matched_category=matched_pattern.get_category_display() if matched_pattern else None,
     )
     recommended_action = llm_result.get("recommended_action") or get_recommended_action(risk_level)
@@ -51,9 +58,9 @@ def analyze_text(text: str) -> dict:
         "ml_confidence": ml_result.get("confidence"),
         "rule_score": rule_result["score"],
         "pattern_score": pattern_score,
-        "matched_pattern": matched_pattern,  # real ScamPattern instance or None — safe for the FK
+        "matched_pattern": matched_pattern,
         "category": matched_pattern.get_category_display() if matched_pattern else "Unclassified",
-        "evidence": _flatten_evidence(rule_result["evidence"]),
+        "evidence": evidence,
         "urls": rule_result.get("urls", []),
         "llm_explanation": llm_result["explanation"],
         "recommended_action": recommended_action,
