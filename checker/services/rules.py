@@ -101,11 +101,11 @@ def check_rules(text: str) -> dict:
     urls = extract_urls(text)
 
     for label, patterns, weight, cap, message in [
-        ("urgency", URGENT_PATTERNS, 8, 20, "Urgency or time-pressure language detected"),
-        ("credential_request", CREDENTIAL_PATTERNS, 10, 30, "Credential or identity-verification language detected"),
-        ("financial_signal", MONEY_PATTERNS, 5, 20, "Financial transaction or reward language detected"),
-        ("threat", THREAT_PATTERNS, 10, 25, "Threat or consequence language detected"),
-        ("promotion", PROMOTIONAL_PATTERNS, 4, 15, "Prize, reward, or promotional language detected"),
+        ("urgency", URGENT_PATTERNS, 70, 20, "Urgency or time-pressure language detected"),
+        ("credential_request", CREDENTIAL_PATTERNS, 70, 30, "Credential or identity-verification language detected"),
+        ("financial_signal", MONEY_PATTERNS, 75, 20, "Financial transaction or reward language detected"),
+        ("threat", THREAT_PATTERNS, 70, 25, "Threat or consequence language detected"),
+        ("promotion", PROMOTIONAL_PATTERNS, 70, 15, "Prize, reward, or promotional language detected"),
     ]:
         matches = _find_matches(text, patterns)
         if matches:
