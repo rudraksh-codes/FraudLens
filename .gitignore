@@ -90,8 +90,6 @@ target/
 #archive folder
 archive/
 
-#nltk
-stopwords/
 
 #staticfiles
 staticfiles/
