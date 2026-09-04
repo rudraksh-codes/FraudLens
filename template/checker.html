@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/checker.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="hero-section">
+    <div class="container hero-container">
+        <p class="eyebrow">MESSAGE &middot; SMS &middot; WHATSAPP &middot; EMAIL &middot; URL</p>
+
+        <h1 class="hero-heading">Paste it before you trust it.</h1>
+
+        <p class="hero-subtitle">
+            FraudLens scans the text for the signals real scam campaigns leave behind —
+            urgency, credential requests, suspicious links — and tells you what to do next.
+        </p>
+
+        <div class="checker-panel">
+            {% if error %}
+            <p class="checker-error">{{ error }}</p>
+            {% endif %}
+            <form method="POST" action="" class="checker-form">
+                {% csrf_token %}
+
+                <label for="scamInput" class="checker-label">
+                    Paste the message or URL
+                </label>
+
+                <textarea id="scamInput" name="text" class="checker-textarea"
+                    placeholder="e.g. Dear Customer, your account will be blocked. Click here to verify…"
+                    rows="6" required>{% if request.POST.text %}{{ request.POST.text }}{% endif %}</textarea>
+
+                <div class="panel-actions">
+                    <button type="button" id="tryExampleBtn" class="btn btn-outline-example">
+                        Try an example
+                    </button>
+                    <button type="submit" class="btn btn-primary-check">
+                        Check message
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if result %}
+        <div class="result-card">
+            <div class="result-header">
+                <h2>{{ result.risk_level }} RISK</h2>
+                <div class="score-badge">Score: {{ result.score }}</div>
+            </div>
+
+            <div class="score-meter">
+                <div class="score-meter-fill" style="width: {{ result.score }}%;"></div>
+            </div>
+
+            <div class="result-details">
+                <div class="detail-item">
+                    <div class="detail-label">Category</div>
+                    <div class="detail-value">{{ result.category }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Matched Pattern</div>
+                    <div class="detail-value">{{ result.matched_pattern }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Match Score</div>
+                    <div class="detail-value">{{ result.match_score }}%</div>
+                </div>
+            </div>
+
+            <div class="result-evidence">
+                <h4>Evidence</h4>
+                <ul>
+                    {% for evidence in result.evidence %}
+                    <li>{{ evidence }}</li>
+                    {% empty %}
+                    <li>No specific rule-based signals were triggered.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="result-explanation">
+                {{ result.llm_explanation }}
+            </div>
+
+            <div class="result-action">
+                <strong>Recommended:</strong> {{ result.recommended_action }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</main>
+
+<script>
+    document.getElementById('tryExampleBtn').addEventListener('click', function () {
+        document.getElementById('scamInput').value =
+            "Your KYC has expired. Update your KYC immediately or your bank account will be blocked. Verify now: bit.ly/kyc-verify82";
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,91 @@
+/* ================================================================
+   FraudLens – Global theme
+   Load once in base.html <head>. Defines the color system and the
+   navbar — both used on every page. Page-specific stylesheets
+   (checker.css, dashboard.css) reference these variables, they
+   don't redefine them.
+   ================================================================ */
+
+:root {
+    --fl-bg: #0a0a09;
+    --fl-surface: #121110;
+    --fl-text: #f5efe4;
+    --fl-muted: rgba(255, 255, 255, 0.55);
+    --fl-subtle: rgba(255, 255, 255, 0.25);
+    --fl-border: rgba(255, 255, 255, 0.08);
+    --fl-panel: rgba(255, 255, 255, 0.035);
+    --fl-input: rgba(0, 0, 0, 0.45);
+    --fl-accent: #e2a545;
+    --fl-accent-dark: #c78d34;
+}
+
+body {
+    background: var(--fl-bg);
+    color: var(--fl-text);
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---------------------------------------------------------------
+   Navbar
+   --------------------------------------------------------------- */
+
+.custom-navbar {
+    background: #0f0e0c;
+    border-bottom: 1px solid var(--fl-border);
+    padding: 0.9rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+}
+
+.brand-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--fl-accent);
+    box-shadow: 0 0 8px rgba(226, 165, 69, 0.6);
+}
+
+.brand-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--fl-text);
+    letter-spacing: -0.01em;
+}
+
+.custom-navbar .nav-link {
+    color: var(--fl-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.custom-navbar .nav-link:hover {
+    color: var(--fl-text);
+}
+
+.custom-navbar .nav-link.active-link {
+    color: #12100a;
+    background: var(--fl-accent);
+    font-weight: 600;
+}
+
+.navbar-toggler {
+    border-color: var(--fl-border);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}

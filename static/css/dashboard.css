@@ -1,0 +1,268 @@
+/* ================================================================
+   FraudLens – Dashboard
+   Page-specific stylesheet. Uses variables defined in theme.css.
+   ================================================================ */
+
+.dashboard-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-title {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--fl-text);
+    letter-spacing: -0.02em;
+}
+
+.dashboard-subtitle {
+    margin: 0;
+    color: var(--fl-muted);
+    font-size: 1rem;
+}
+
+/* ---------------------------------------------------------------
+   Shared card look
+   --------------------------------------------------------------- */
+
+.summary-card,
+.table-card,
+.activity-card {
+    background: var(--fl-panel);
+    border: 1px solid var(--fl-border);
+    border-radius: 1.2rem;
+    color: var(--fl-text);
+}
+
+/* ---------------------------------------------------------------
+   Summary cards
+   --------------------------------------------------------------- */
+
+.summary-card .card-body {
+    padding: 1.5rem;
+}
+
+.summary-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+    border-radius: 0.7rem;
+    background: rgba(226, 165, 69, 0.12);
+    color: var(--fl-accent);
+}
+
+.summary-label {
+    margin-bottom: 0.35rem;
+    color: var(--fl-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.summary-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--fl-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------
+   Table / activity card headers
+   --------------------------------------------------------------- */
+
+.table-card .card-header,
+.activity-card .card-header {
+    padding: 1.5rem 1.5rem 0.75rem;
+    background: transparent;
+    border-bottom: 1px solid var(--fl-border);
+}
+
+.card-title {
+    margin: 0 0 0.25rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--fl-text);
+}
+
+.card-subtitle {
+    margin: 0 0 1rem;
+    color: var(--fl-muted);
+    font-size: 0.85rem;
+}
+
+.table-card .card-body,
+.activity-card .card-body {
+    padding: 1.5rem;
+}
+
+/* ---------------------------------------------------------------
+   Patterns table
+   --------------------------------------------------------------- */
+
+.patterns-table {
+    margin: 0;
+    color: var(--fl-text);
+    border-color: var(--fl-border);
+}
+
+.patterns-table thead th {
+    color: var(--fl-muted);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--fl-border);
+    background: transparent;
+}
+
+.patterns-table tbody td {
+    padding: 0.85rem 0.75rem;
+    border-color: var(--fl-border);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.pattern-text {
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--fl-muted);
+}
+
+.category-badge {
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(226, 165, 69, 0.12);
+    color: var(--fl-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.match-count,
+.sighting-count {
+    font-weight: 700;
+    color: var(--fl-text);
+}
+
+/* ---------------------------------------------------------------
+   Recent activity
+   --------------------------------------------------------------- */
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.activity-item {
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--fl-border);
+    border-radius: 0.9rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.activity-category {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--fl-text);
+}
+
+.activity-time {
+    color: var(--fl-subtle);
+    font-size: 0.8rem;
+}
+
+.activity-pattern {
+    margin-bottom: 0.6rem;
+    color: var(--fl-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.activity-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+}
+
+.activity-risk {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.activity-risk.risk-high {
+    background: rgba(230, 70, 70, 0.15);
+    color: #e66;
+}
+
+.activity-risk.risk-medium {
+    background: rgba(226, 165, 69, 0.15);
+    color: var(--fl-accent);
+}
+
+.activity-risk.risk-low {
+    background: rgba(90, 190, 120, 0.15);
+    color: #5be08a;
+}
+
+.activity-match,
+.activity-reported {
+    color: var(--fl-muted);
+}
+
+/* ---------------------------------------------------------------
+   Empty states
+   --------------------------------------------------------------- */
+
+.empty-state-inline {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.empty-message {
+    margin: 0 0 0.3rem;
+    color: var(--fl-text);
+    font-weight: 600;
+}
+
+.empty-hint {
+    margin: 0;
+    color: var(--fl-muted);
+    font-size: 0.85rem;
+}
+
+/* ---------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------- */
+
+@media (max-width: 576px) {
+    .dashboard-wrapper { padding: 2rem 1rem 3rem; }
+    .dashboard-title { font-size: 1.6rem; }
+    .pattern-text { max-width: 140px; }
+}

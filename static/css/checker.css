@@ -1,0 +1,427 @@
+/* ================================================================
+   FraudLens – Scam Checker
+   Page-specific stylesheet. Uses variables defined in theme.css —
+   theme.css must be loaded first (it is, via base.html <head>).
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   Checker page
+   --------------------------------------------------------------- */
+
+.hero-section {
+    min-height: calc(100vh - 72px);
+    padding: 3.5rem 0 4.5rem;
+    background: var(--fl-bg);
+    color: var(--fl-text);
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.eyebrow {
+    margin: 0 0 1.5rem;
+    font-size: 0.65rem;
+    line-height: 1.4;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fl-accent);
+    font-weight: 600;
+}
+
+.hero-heading {
+    margin: 0 0 0.9rem;
+    font-size: clamp(2.2rem, 7vw, 3.2rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--fl-text);
+}
+
+.hero-subtitle {
+    max-width: 660px;
+    margin: 0 0 2.8rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 400;
+    color: var(--fl-muted);
+}
+
+/* ---------------------------------------------------------------
+   Checker panel
+   --------------------------------------------------------------- */
+
+.checker-panel {
+    padding: 2.2rem;
+    background: var(--fl-panel);
+    border: 1px solid var(--fl-border);
+    border-radius: 1.8rem;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px rgba(226, 165, 69, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checker-panel:hover {
+    border-color: rgba(226, 165, 69, 0.2);
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.7),
+        inset 0 0 0 1px rgba(226, 165, 69, 0.15);
+}
+
+.checker-error {
+    margin: 0 0 1.25rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(230, 70, 70, 0.3);
+    border-radius: 0.7rem;
+    background: rgba(230, 70, 70, 0.1);
+    color: #f0a0a0;
+    font-size: 0.9rem;
+}
+
+.checker-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.checker-label {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.checker-textarea {
+    width: 100%;
+    min-height: 170px;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+    outline: none;
+    background: var(--fl-input);
+    color: var(--fl-text);
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    resize: vertical;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.checker-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 300;
+}
+
+.checker-textarea:focus {
+    border-color: var(--fl-accent);
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow:
+        0 0 0 4px rgba(226, 165, 69, 0.12),
+        inset 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------------------------------------------------------------
+   Buttons
+   --------------------------------------------------------------- */
+
+.panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 0.25rem;
+}
+
+.checker-panel .btn {
+    margin: 0;
+    border-radius: 0.8rem;
+    border: 1px solid transparent;
+    padding: 0.7rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-outline-example {
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.btn-outline-example:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.btn-primary-check {
+    background: var(--fl-accent);
+    color: #12100a;
+    border-color: var(--fl-accent);
+    box-shadow: 0 4px 20px rgba(226, 165, 69, 0.3);
+}
+
+.btn-primary-check:hover {
+    background: var(--fl-accent-dark);
+    border-color: var(--fl-accent-dark);
+    color: #12100a;
+    box-shadow: 0 8px 28px rgba(226, 165, 69, 0.45);
+    transform: translateY(-2px);
+}
+
+.btn-primary-check:active {
+    transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------
+   Result card
+   --------------------------------------------------------------- */
+
+.result-card {
+    position: relative;
+    margin-top: 2.8rem;
+    padding: 2.2rem;
+    overflow: hidden;
+    background: var(--fl-panel);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1.8rem;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(226, 165, 69, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.result-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--fl-accent) 50%, transparent 100%);
+    opacity: 0.6;
+}
+
+.result-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.result-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.result-header h2::before {
+    content: "🛡️";
+    font-size: 1.8rem;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+.score-badge {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(226, 165, 69, 0.3);
+    border-radius: 999px;
+    background: rgba(226, 165, 69, 0.12);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    align-self: center;
+}
+
+.score-meter {
+    width: 100%;
+    height: 8px;
+    margin-bottom: 1.8rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.score-meter-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--fl-accent), #f0c878);
+    box-shadow: 0 0 15px rgba(226, 165, 69, 0.4);
+    transition: width 0.6s ease;
+}
+
+.result-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0.8rem;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.detail-label {
+    margin-bottom: 0.4rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.detail-value {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.result-evidence {
+    margin: 1.5rem 0;
+}
+
+.result-evidence h4 {
+    margin: 0 0 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.result-evidence ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.result-evidence ul li {
+    position: relative;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    border-left: 3px solid rgba(226, 165, 69, 0.3);
+    border-radius: 0.6rem;
+    background: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    backdrop-filter: blur(2px);
+}
+
+.result-evidence ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0.9rem;
+    color: var(--fl-accent);
+    font-weight: 300;
+}
+
+.result-explanation {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.result-explanation strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.result-action {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1.2rem;
+    border-left: 4px solid var(--fl-accent);
+    border-radius: 0.8rem;
+    background: rgba(226, 165, 69, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.result-action strong {
+    color: #ffffff;
+}
+
+/* ---------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .hero-section { padding: 2.5rem 0 3.5rem; }
+    .hero-container { padding: 0 1.25rem; }
+    .hero-subtitle { font-size: 1rem; }
+
+    .checker-panel,
+    .result-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 1.4rem;
+    }
+
+    .panel-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .checker-panel .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .result-header { align-items: flex-start; }
+    .result-header h2 { font-size: 1.8rem; }
+    .result-details { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 576px) {
+    .hero-container { padding: 0 1rem; }
+    .hero-heading { font-size: 2rem; }
+    .eyebrow { font-size: 0.6rem; }
+
+    .checker-textarea {
+        min-height: 150px;
+        padding: 0.9rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .result-evidence ul li {
+        padding: 0.5rem 0.8rem 0.5rem 2rem;
+        font-size: 0.8rem;
+    }
+
+    .result-header { flex-direction: column; align-items: flex-start; }
+}
