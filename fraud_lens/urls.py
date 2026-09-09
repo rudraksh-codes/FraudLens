@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include("checker.urls")), 
     path('dashboard/', include("dashboard.urls")), 
     path('about/', views.about, name = 'about'), 
+    path('health/', views.health, name = 'health')
 ]
